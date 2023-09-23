@@ -11,14 +11,18 @@ public class Peak {
 
         System.out.println("Добро пожаловать в игру 'Угадай число'!");
         System.out.println("Я загадал число от 1 до 100. Попробуйте угадать его.");
-
+        System.out.println("Для выхода введите '-1'");
         boolean hasGuessed = false;
 
         while (!hasGuessed) {
             System.out.print("Ваш вариант: ");
             int userGuess = scanner.nextInt();
+            if(userGuess == -1)
+            {
+                System.out.println("Игра была завершена, тк вы ввели '-1'");
+                break;
+            }
             attempts++;
-
             if (userGuess < secretNumber) {
                 System.out.println("Попробуйте большее число.");
             } else if (userGuess > secretNumber) {
@@ -27,6 +31,7 @@ public class Peak {
                 System.out.println("Поздравляю! Вы угадали число " + secretNumber + " за " + attempts + " попыток.");
                 hasGuessed = true;
             }
+
         }
 
         scanner.close();
